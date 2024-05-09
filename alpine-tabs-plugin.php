@@ -4,7 +4,14 @@ Plugin Name: Alpine Tabs Plugin
 Description: Plugin for adding tabs functionality using Alpine.js. Just add [alpine-tabs] on the website in right place.
 Version: 1.0
 Author: Halyna Yampolska
+Text Domain: alpine-tabs-plugin
 */
+
+// Load text domain for localization
+function alpine_tabs_load_textdomain() {
+    load_plugin_textdomain( 'alpine-tabs-plugin', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+}
+add_action( 'plugins_loaded', 'alpine_tabs_load_textdomain' );
 
 function alpine_tabs_enqueue_scripts() {
     // Add style
@@ -15,6 +22,9 @@ function alpine_tabs_enqueue_scripts() {
 
     // Add tabs.js
     wp_enqueue_script( 'alpine-tabs-script', plugins_url( 'tabs.js', __FILE__ ), array( 'alpine-js' ), null, true );
+
+    // Include template file
+    require_once( plugin_dir_path( __FILE__ ) . 'alpine-tabs-template.php' );
 }
 
 add_action( 'wp_enqueue_scripts', 'alpine_tabs_enqueue_scripts' );
@@ -28,7 +38,9 @@ function alpine_tabs_shortcode( $atts ) {
     ), $atts );
 
     // Add plugin HTML
-    $html = file_get_contents( __DIR__ . '/index.html' );
+    ob_start();
+    include( plugin_dir_path( __FILE__ ) . 'alpine-tabs-template.php' );
+    $html = ob_get_clean();
 
     // Replacing width and height attributes HTML
     $html = str_replace( 'width: auto;', 'width: ' . esc_attr( $atts['width'] ) . ';', $html );
