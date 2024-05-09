@@ -1,0 +1,5 @@
+ТЗ по розробці плагіна для AlpinеJS https://alpinejs.dev
+1. Використовуючи AlpinеJS зробити невеличкий плагін табів
+2. Весь js код повинен бути в окремому файлі
+(підказка: https://alpinejs.dev/globals/alpine-data)
+3. HTML і CSS на ваш розсуд

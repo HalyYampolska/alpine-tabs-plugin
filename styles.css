@@ -1,0 +1,56 @@
+/* Stule for tabs container */
+.tabs-container {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    border-radius: 5px 5px 0 0;
+    overflow-x: auto;
+}
+
+/* Style for tab */
+.tab {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-right: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.tab.active {
+    background-color: white;
+    border-bottom: none;
+}
+
+/* Style for tabs inside */
+.tab-content {
+    padding: 20px;
+}
+
+/* Styles for a list element inside a tab */
+.list-item {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for headings */
+.list-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* Styles for text */
+.list-item p {
+    margin: 0;
+}
+
+/* Styles for images */
+.list-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+}

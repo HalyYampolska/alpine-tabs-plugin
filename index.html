@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlpineJS Tabs Plugin</title>
+
+</head>
+<body>
+    <div x-data="{ activeTab: 'tab1' }">
+        <div class="tabs-container">
+            <div @click="activeTab = 'tab1'" :class="{ 'active': activeTab === 'tab1' }" class="tab">Tab 1</div>
+            <div @click="activeTab = 'tab2'" :class="{ 'active': activeTab === 'tab2' }" class="tab">Tab 2</div>
+            <div @click="activeTab = 'tab3'" :class="{ 'active': activeTab === 'tab3' }" class="tab">Tab 3</div>
+        </div>
+        
+        <div class="tab-content">
+            <template x-if="activeTab === 'tab1'">
+                <div class="list-item">
+                    <h3>Title 1</h3>
+                    <p>Description for Item 1</p>
+                </div>
+            </template>
+            
+            <template x-if="activeTab === 'tab2'">
+                <div class="list-item">
+                    <h3>Title 2</h3>
+                    <p>Description for Item 2</p>
+                </div>
+            </template>
+            
+            <template x-if="activeTab === 'tab3'">
+                <div class="list-item">
+                    <h3>Title 3</h3>
+                    <p>Description for Item 3</p>
+                </div>
+            </template>
+        </div>
+    </div>
+</body>
+</html>
